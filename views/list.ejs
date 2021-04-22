@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="user-card">
+            <span>Username : <%= context.username %></span>
+            <span>Current Events : <%= context.events.length %></span> 
+    </div>
+
+    <center> <a href="/api/<%= context.username %>/create" style="position: absolute; top: 180px; right: 590px;" > <button class="btn" type="button" style="width: 300px;">Create new meeting</button></a></center>
+    <h4>All meetings</h4>
+    <div class="create-event">
+        <%  context.events.map(event=>{   %>
+
+             <div class="card">
+                 <p class="heading"><%= event.description %></p>
+                 <p class="date"><%- new Date(event.from).toLocaleDateString() %></p>
+                 <p class="fromto"><%- new Date(event.from).getUTCHours()%>:<%-new Date(event.from).getUTCMinutes() %> Hours <---> <%- new Date(event.to).getUTCHours()%>:<%-new Date(event.to).getUTCMinutes() %> Hours </p>
+                 <p class="room">Room Number : <%= event.room %></p>
+             </div>
+
+        <%    })            %>
+    </div>
+    
+    
+    
+</body>
+</html>

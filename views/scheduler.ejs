@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css" />
+    <title>Document</title>
+</head>
+<body>
+    <h5 style="margin-top: 120px;"><center><%= context.error %></center></h5>
+    <div class="user-card">
+            <span>Username : <%= context.username %></span>
+            <span>Current Events : <%= context.events.length %></span> 
+    </div>
+
+    <h4>Schedule new meeting</h4>
+    <div class="create-event">
+        
+        <form method="POST">
+            <label for="date">Date</label>
+            <input name="date" type="date" required/>
+            <label for="from">From</label>
+            <input name="from" type="time" required/>
+            <label for="to">To</label>
+            <input name="to" type="time" required/>
+            <label for="room">Room No.</label>
+            <select name="room">
+                <option value="1">R1</option>
+                <option value="2">R2</option>
+                <option value="3">R3</option>
+                <option value="4">R4</option>
+                <option value="5">R5</option>
+            </select>
+            <label for="note">Description*</label>
+            <textarea name="note" style="height: 174px; width: 387px; font-size: 20px; margin-bottom: 20px; padding: 10px;"></textarea>
+
+            <button class="btn" type="submit" formaction="/api/<%= context.username %>/create" >Add Meeting</button>
+
+        </form>
+        
+    </div>
+               <center> <a href="/api/<%= context.username %>/list" style="margin : 30px auto" > <button class="btn" type="button" style="width: 300px;"> See All Meetings</button></a></center>
+    <br><br><br>
+    
+</body>
+</html>
