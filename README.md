@@ -43,3 +43,6 @@
    -Creates new meeting if there are no clashes
 6. **`GET /api/:username/list`**
     - Displays all saved meeting
+
+
+

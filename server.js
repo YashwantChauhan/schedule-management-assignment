@@ -1,3 +1,18 @@
+
+/*
+
+    Yashwant Singh Chauhan
+    Growthpal assignment
+
+*/
+
+
+// Router at router.js
+// database model defined in model.js
+// webpages in views
+// CSS in public folder
+
+
 const express = require('express')
 const app = express()
 const methodOverride = require('method-override')

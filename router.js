@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const schedulerModel = require('./model')
 
+//---------------------------------------------------------Create New User------------------------------------------------------------------
 router.post('/create', async (req, res) => {
 
     const name = req.body.username;
@@ -39,6 +40,7 @@ router.post('/create', async (req, res) => {
 
 })
 
+//---------------------------------------------------------------------Login------------------------------------------------------------
 
 router.post( '/auth' , async (req,res)=>{
 
@@ -66,7 +68,7 @@ router.post( '/auth' , async (req,res)=>{
 
 })
 
-
+//------------------------------------------------------------------------Dashboard--------------------------------------------------
 router.get('/:name' , async (req,res)=>{
     
     const name = req.params.name;
@@ -82,7 +84,17 @@ router.get('/:name' , async (req,res)=>{
 
 
 })
+//------------------------------------------------------------------------Open new meeting page-----------------------------------------------------------
 
+router.get('/:name/create', async (req,res)=>{
+    
+    let user = await schedulerModel.findOne({ username : req.params.name })
+
+    res.render('scheduler',context=user)
+})
+
+
+//----------------------------------------------------------------------Schedule new meeting--------------------------------------------------------
 router.post('/:name/create', async (req,res)=>{
 
     let { date,from,to,room,note } = req.body
@@ -126,8 +138,7 @@ router.post('/:name/create', async (req,res)=>{
 
     }
     
-
-
+//--------------------------------------------------------------------------Display all meetings-------------------------------------------------------------------------
 })
 
 router.get('/:name/list', async (req,res)=>{
@@ -135,13 +146,6 @@ router.get('/:name/list', async (req,res)=>{
     let user = await schedulerModel.findOne({ username : req.params.name })
 
     res.render('list',context=user)
-})
-
-router.get('/:name/create', async (req,res)=>{
-    
-    let user = await schedulerModel.findOne({ username : req.params.name })
-
-    res.render('scheduler',context=user)
 })
 
 
