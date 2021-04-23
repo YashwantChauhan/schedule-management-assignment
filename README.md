@@ -12,7 +12,8 @@
 3. run node `server.js`
 
 ## PORT 
-1. The application runs on PORT 5000
+1. The application runs on 5000.
+2. It should run on **127.0.0.1:5000**.
 
 ## API endpoints
 
