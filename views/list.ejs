@@ -13,7 +13,7 @@
             <span>Current Events : <%= context.events.length %></span> 
     </div>
 
-    <center> <a href="/api/<%= context.username %>/create" style="position: absolute; top: 180px; right: 590px;" > <button class="btn" type="button" style="width: 300px;">Create new meeting</button></a></center>
+    <center> <a href="/api/<%= context.username %>" style="position: absolute; top: 180px; right: 590px;" > <button class="btn" type="button" style="width: 300px;">Create new meeting</button></a></center>
     <h4>All meetings</h4>
     <div class="create-event">
         <%  context.events.map(event=>{   %>
