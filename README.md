@@ -6,6 +6,14 @@
 
 - NodeJS, MongoDB, HTML, CSS
 
+## How to run 
+1. Clone the repo 
+2. use `npm install` 
+3. run node `server.js`
+
+## PORT 
+1. The application runs on PORT 5000
+
 ## API endpoints
 
 1. **`GET  /`**     
